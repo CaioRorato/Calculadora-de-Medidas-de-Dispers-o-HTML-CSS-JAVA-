@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <header class="content-wrapper">
+        <p>Projeto de estatística aplicada</p>
+        <p>Medidas de dispersão</p>
+    </header>
+
+    <main class="content-wrapper">
+        <section class="content-calculo">
+            
+            <div class="content-calculo-top">
+                <label for="dados" class="label">Entre com os números </label>
+
+                <button class="como-usar">Como usar</button>
+                <script>
+                    const BOTAO_COMO_USAR = document.querySelector("button.como-usar").addEventListener("click", () => {
+
+                        const AREA_CALCULO = document.querySelector("section.content-calculo")
+                        const AREA_DADOS = document.querySelector(".dados")    
+                        const AREA_COMO_USAR = document.createElement("div")
+                        AREA_COMO_USAR.setAttribute("class", "area-como-usar")
+                        
+                        // Elementos que vão dentro da area de "como usar"
+
+                        const h1 = document.createElement("h1")
+                        h1.innerText = "Como usar:"
+                    
+                        const p2 = document.createElement("p")
+                        p2.innerText = "> Digitar os valores desejados na caixa de texto."
+
+                        const p3 = document.createElement("p")
+                        p3.innerText = "> Os números podem ser inteiros ou reais."
+
+                        const p4 = document.createElement("p")
+                        p4.innerText = "> Os números DEVEM ser separados por: Vírgula, ponto e vírgula ou espaço."
+
+                        const p5 = document.createElement("p")
+                        p5.innerText = "> Números reais DEVEM possuir o ponto."
+
+                        const p6 = document.createElement("p")
+                        p6.innerText = "> Após digitados os números desejados, basta clicar no botão 'Calcular'."
+
+                        AREA_COMO_USAR.append(h1, p2, p3, p4, p5, p6)
+
+                        AREA_CALCULO.replaceChild(AREA_COMO_USAR, AREA_DADOS);  
+                        
+                        return TrocarBotao(AREA_CALCULO, AREA_COMO_USAR, AREA_DADOS)
+                    })
+
+                    function TrocarBotao(AreaMain, OldArea, NewArea) {
+                        const TOP_AREA = document.querySelector(".content-calculo-top")
+                        const OLD_BUTTON = document.querySelector("button.como-usar")
+                        const BOTAO_FECHAR = document.createElement("button")
+                        BOTAO_FECHAR.innerText = "Voltar"
+                        TOP_AREA.replaceChild(BOTAO_FECHAR, OLD_BUTTON)
+
+                        BOTAO_FECHAR.addEventListener("click", () => {
+                            AreaMain.replaceChild(NewArea, OldArea); 
+                            TOP_AREA.replaceChild(OLD_BUTTON, BOTAO_FECHAR)
+                        })
+
+                    }
+
+                </script>
+            </div>
+
+            <textarea name="dados" id="dados" class="dados" placeholder="Ex: 1.5, 7, 20, 98"></textarea>
+
+            <script>
+                let AREA = document.querySelector(".dados").addEventListener("keydown", (e) => {
+                    if (e.key == "Enter") {
+                        e.preventDefault();
+                    } 
+                })
+            </script>
+
+            <div class="button-area">
+                <button class="calcular">Calcular</button>
+                <button class="apagar">Apagar Tudo</button>
+            </div>
+        </section>
+            
+        <section class="content-resultado">
+            <div class="usable-area">
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-area content-wrapper">
+            <p>NOMES AQUI</p>
+        </div>
+    </footer>
+</body>
+</html>

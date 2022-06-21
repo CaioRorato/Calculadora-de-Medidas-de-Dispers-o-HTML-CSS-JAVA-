@@ -1,0 +1,20 @@
+-> Testar no monitor da escola
+
+--------------------------------------------------
+
+-> TESTAR se esta certo os resultados
+	-> Não esta certo com numero reais
+
+-> Caixa de texto se move ao pressionar "como usar"
+
+-> Arrumar as fórmulas no extra
+
+-> Dados insuficientes OU 0 ???
+
+
+
+
+// Não funcional
+    -> Gráficos que mostram as medidas
+    -> Entrada com arquivos (txt, excel)
+    -> Responsividade
